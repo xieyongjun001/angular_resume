@@ -1,0 +1,22 @@
+<div class="experience" id="experience">
+    <div class="content-inner">
+        <div class="content-header">
+            <h2>Experience</h2>
+        </div>
+        <div class="row align-items-center">
+            <div *ngFor="let experience of myExperience" class="col-md-6">
+                <div class="exp-col">
+                    <span>{{ experience.fromdate | date:'dd/MM/yyyy'}}<i>to</i> {{ experience.enddate | date:'dd/MM/yyyy'}}</span>
+                    <h3>{{ experience.institution | titlecase}}</h3>
+                    <h4>{{ experience.location| titlecase}}</h4>
+                    <h5>{{ experience.position | titlecase}}</h5>
+                    <p>{{ experience.description}}</p>
+
+                   
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form" *ngIf="!submitted">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" ngModel placeholder="Your Name" name="username" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="email" class="form-control" ngModel placeholder="Your Email" name="email" #email="ngModel" required email>
+                    <span *ngIf="!email.valid && email.touched" class="help-block">
+                        Please enter a valid email
+                      </span>
+                </div>
+               
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" ngModel placeholder="Subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="5" ngModel placeholder="Message" name="message"></textarea>
+            </div>
+            <div><button class="btn" type="submit">Send Message</button></div>
+    </div>
+</form>
+<div *ngIf="submitted">
+    <h2>Submitted Content, Thank you!</h2>
+    <p>Name: {{ f.value.username }}</p>
+    <p>Email: {{ f.value.email }}</p>
+    <p>subject: {{ f.value.subject }}</p>
+    <p>message: {{ f.value.message }}</p>
+  </div>
